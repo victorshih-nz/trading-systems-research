@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-XX-XXTXX:XX:XXZ",
+  "instrument": "EXAMPLE",
+  "event_type": "strategy_decision",
+  "market_state": "valid",
+  "strategy_id": "hypothesis_A",
+  "decision": "rejected",
+  "reason": "risk_policy",
+  "execution_mode": "paper",
+  "evidence_quality": "authoritative",
+  "notes": "Synthetic example. No real strategy parameter or account information."
+}
