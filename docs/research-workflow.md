@@ -93,6 +93,22 @@ A mature gate can consider areas such as:
 
 Exact private thresholds are omitted.
 
+## Transition from research to controlled production
+
+The private project's current documented sequence extends the earlier paper/shadow model without merging those paths into a live order loop:
+
+1. Freeze the research scenario and preserve its source identity.
+2. Validate data, independent scenario evidence, paper/shadow outcomes and execution assumptions.
+3. Freeze the production risk, configuration, telemetry and research-to-execution mapping contracts.
+4. Run read-only environment/account checks and reconcile local durable ownership against authoritative exchange state.
+5. Verify restart and known active-trade lifecycle recovery before new-entry authority is considered.
+6. Check execution permissions using the exchange test-order path, which does not enter the matching engine.
+7. Require explicit approval for a bounded maintenance probe; keep it excluded from strategy research results.
+8. Evaluate a separately generated and accepted natural strategy intent under a staged exposure envelope.
+9. Consider any wider live envelope only through a separate evidence review and manual promotion decision.
+
+**Status distinction:** documented code paths and contract tests do not imply a completed live probe, autonomous strategy execution, successful end-to-end VPS/NAS deployment, or demonstrated returns. Unknown submission outcomes are reconciled by identity rather than blindly retried.
+
 ## Key lesson
 
 The workflow is deliberately conservative.
