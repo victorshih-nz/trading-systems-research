@@ -22,6 +22,20 @@ A profitable backtest alone does not prove that a strategy is robust. Real syste
 
 The project therefore separates **research**, **shadow observation**, **execution simulation**, **risk controls**, and **promotion decisions**.
 
+## Current private-project milestone (October 2026)
+
+The private implementation now has a **frozen dual-scenario research specification** and a separate **P1–P6 USDC production foundation**. The two research scenarios compare a shared multi-layer strategy under different eligibility breadth requirements; their exact signals, weights, and parameters remain private. The production foundation is risk-first and does **not** establish that the strategy is profitable or autonomously trading.
+
+This represents a material progression beyond the original paper/shadow-only case study:
+
+- Frozen research identity and production execution identity are distinct; changes to execution instruments must not silently rewrite research history.
+- The production pipeline separates configuration/account-mode validation, readiness and risk gates, authoritative exchange reconciliation, durable runtime state, restart/lifecycle recovery, and explicitly approved order mutation.
+- A staged promotion ladder distinguishes read-only checks, test-order permission checks, a small research-excluded maintenance probe, a first natural strategy intent, and later explicit promotion.
+- A natural strategy intent must come from a separate accepted adapter; the P6 foundation does not invent signals or claim autonomous strategy execution.
+- The VPS is the sole production order authority. NAS services support research, backup and sanitized portfolio/dashboard views; the NAS does not hold the production execution key.
+
+These are **documented implementation contracts**, not proof of live acceptance, realized returns, or completed end-to-end deployment. See [architecture](docs/architecture.md), [risk and validation](docs/risk-and-validation.md), and [research workflow](docs/research-workflow.md).
+
 ## High-level architecture
 
 ```mermaid
@@ -120,6 +134,10 @@ At a high level:
 - long-running shadow/paper observation
 
 Exact implementation details are intentionally omitted from this public repository.
+
+## Current validation boundary
+
+Deterministic tests can demonstrate contract and state-transition behavior, but do not prove live exchange integration, execution quality, profitability, or deployment readiness. Mainnet mutation must remain behind explicit approval and environment, permission, reconciliation, durable-state and risk checks. Unknown exchange state blocks new exposure without blind cancellation or flattening.
 
 ## What is intentionally private
 
