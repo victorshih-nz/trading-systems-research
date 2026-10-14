@@ -100,6 +100,35 @@ Reports aggregate:
 
 The reporting layer should make uncertainty visible rather than hiding it.
 
+## Production foundation (sanitized current view)
+
+The private project now separates the frozen research/shadow paths from a staged USDC production foundation:
+
+```mermaid
+flowchart TD
+    RM[Research and shadow hypotheses] --> INT[Accepted frozen signal intent]
+    INT --> MAP[Research-to-execution identity mapping]
+    MAP --> CFG[Configuration and account-mode gates]
+    CFG --> REC[Exchange / durable-state reconciliation]
+    REC --> RISK[Risk and entry authority]
+    RISK --> RUN[Durable production runtime]
+    RUN --> MUT[Explicitly approved execution boundary]
+    RUN --> AUD[Authoritative local journal]
+    AUD --> PROJ[Rebuildable reporting projection]
+    PROJ --> PUB[Sanitized read-only dashboard]
+    AUD --> BACKUP[NAS backup and archive]
+    REC -->|unknown state| BLOCK[Block new exposure]
+    RISK -->|not ready| BLOCK
+```
+
+The research specification defines two frozen comparison scenarios and distinct strategy layers. A separate production instrument mapping preserves historical research identity rather than rewriting it. Exact eligibility, allocation and signal logic are private.
+
+**Deployment responsibilities:** a VPS owns exchange order authority, execution credentials and durable production state; a NAS is used for shadow research, archives, backups, and sanitized website/dashboard publication; a laptop serves development and administration. Loss of NAS telemetry must not create new production-order authority or redefine the VPS ledger.
+
+The private P1–P6 contracts cover strategy provenance and telemetry; risk boundaries; read-only preflight, configuration/account checks, exchange reconciliation and entry gating; persistent hash-chained events and restart/active-trade recovery; and tightly controlled order mutation. The exchange is authoritative for current open orders and position quantities, while the durable local ledger records expected ownership and lifecycle context. An unexplained mismatch blocks new entries, with no blind cancel or flatten.
+
+P6 is an explicit controlled execution gateway; it is **not** a claim that an autonomous strategy-to-execution adapter or real-world deployment acceptance has been completed.
+
 ## Design objective
 
 The architecture is built around a single question:
