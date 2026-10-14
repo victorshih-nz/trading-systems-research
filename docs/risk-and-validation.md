@@ -45,6 +45,16 @@ The private implementation contains hard limits around areas such as:
 
 Exact values are intentionally private.
 
+## Current production safety boundaries (sanitized)
+
+The newer private foundation documents distinct read-only and execution credentials, IP restriction for production order authority, and withdrawal permission disabled. Production execution uses a separate instrument/accounting identity from historical research. Configuration and exchange account mode are prerequisites, not assumptions.
+
+Local durable state and exchange state are reconciled before opening new exposure. Unrecognized orders/positions or missing lifecycle metadata block new entries; this does not authorize blind cancellation or automatic flattening. Known existing exposure can remain under a separately verified exit-management path without reopening entry authority.
+
+Daily risk accounting distinguishes review of unrealized mark-to-market changes from a latched realized-loss entry freeze. An entry freeze must not terminate observation, reconciliation or permitted management of existing exposure. Production promotion is staged and requires explicit human approval; a maintenance probe is excluded from strategy performance statistics. Exact limits and operational tokens remain private.
+
+An unreliable NAS/dashboard connection must not affect the production host's authoritative trading state. Public dashboards are sanitized and read-only, without production credentials or mutation endpoints.
+
 ## Validation layers
 
 The project uses several validation layers:
